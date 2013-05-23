@@ -57,7 +57,7 @@ module Sensu
         rescue SystemExit => e
           exit e.status
         rescue Exception => e
-          check.critical "Check failed to run: #{e.message}, #{e.backtrace}"
+          check.unknown "Check failed to run: #{e.message}, #{e.backtrace}"
         end
         check.warning "Check did not exit! You should call an exit code method."
       end
